@@ -1,0 +1,977 @@
+{
+	// Place your snippets for vb here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Creación de función":{
+		"prefix": "sub",
+		"body": [
+			"Public Sub ${1: funcion}()",
+			"\t$0",
+			"End Sub"
+		],
+		"description": "creación de función simple"
+	},
+	"If statement":{
+		"description": "Condición If",
+		"prefix": "ifcond",
+		"body": [
+			"If ${1:a<b} Then",
+			"\t$0",
+			"End If"
+		]
+	},
+	"Else Statement":{
+		"description": "Condición Else",
+		"body": [
+			"Else",
+			"\t$0"
+		],
+		"prefix": "else"
+	},
+	"Else If Statement":{
+		"description": "Condición Elif",
+		"body": [
+			"ElseIf ${1:b<c=2}",
+			"\t$0"
+		],
+		"prefix": "elif"
+	},
+	"If then else in one line":{
+		"description": "if else in one line",
+		"body": " If ${1:A > 10} Then ${2:B = 2} Else ${3:B = 3}",
+		"prefix": "ifthenoneline"
+	},
+	"Do while loop":{
+		"description": "do while loop syntax",
+		"prefix": "dowhileloop",
+		"body": [
+			"Dim ${1:sum} as Integer",
+			"Do while ${1:sum} < ${2:1000}",
+			"\t${1:gsum} = ${1:sum} + ${3:50}",
+			"Loop"
+		]
+	},
+	"Activar por nombre de hoja":{
+		"prefix": "acthoja1",
+		"body": "Sheets(${1:“Input”}).Activate",
+		"description": "Activar nombre por hoja"
+	},
+	"Activar hoja por código VBA":{
+		"prefix": "acthoja2",
+		"body": "${1:${1:Hoja1}}.Activate",
+		"description": "activar hoja por código VBA"
+	},
+	"Activar por Poscición del Índice":{
+		"prefix": "acthoja3",
+		"body": "Sheets(${1:1}).Activate",
+		"description": "Activar por Poscición del Índice"
+	},
+	"Activar hoja Siguiente":{
+		"prefix": "actsighoja",
+		"body": "ActiveSheet.Next.Activate",
+		"description": "Siguente hoja es activada"
+	},
+	"Mensaje con el nombre de la hoja activa":{
+		"prefix": "msjnomhojaact",
+		"body": "MsgBox ActiveSheet.Name",
+		"description": "pop up con el nombre de la hoja"
+	},
+	"Seleccionar hoja":{
+		"prefix": "selechoja1",
+		"body": "Sheets(“Input”).Select",
+		"description": "seleccionar hoja"
+	},
+	"Asignar hoja activa a variable":{
+		"prefix": "dimacws",
+		"body": [
+			"Dim ws as WorksheetSet ws = ActiveSheet",
+			"ActiveSheet.Name = “NewName”",
+		],
+		"description": "Asignar hoja activa a variable"
+	},
+	"Agregar hoja":{
+		"prefix": "agregarhoja1",
+		"body": "Sheets.Add",
+		"description": "agrega hoja"
+	},
+	"Nombrar hoja":{
+		"prefix": "nombrarhoja",
+		"body": [
+			"Sheets.Add.Name = “NewSheet”",
+		],
+		"description": "nombra hoja"
+	},
+	"Agregar hoja nueva a variable":{
+		"prefix": "hnavariable",
+		"body":[
+			"Dim ws as Worksheet",
+			"Set ws = Sheets.Add"
+		],
+		"description": "crea hoja y la asigna"
+	},
+	"copiar hoja":{
+		"prefix": "copiarhoja",
+		"body": [
+			"Sheets(“${1:Hoja1}”).Copy",
+			"Before:=Sheets(“${2:Hoja2}”)",
+		],
+		"description": "crea hoja nueva y pega contenido de la hoja seleccionada"
+	},
+	"Ocultar hoja 1":{
+		"prefix": "hide${1:Hoja1}",
+		"body": "Sheets(“${1:Hoja1}”).visible = False",
+		"description": "ocultar hoja"
+	},
+	"Ocultar hoja 2":{
+		"prefix": "hidesheet2",
+		"body": "Sheets(“${1:Hoja1}”).visible = xlSheetHidden",
+		"description": "ocultar hoja"
+	},
+	"Aparecer hoja1":{
+		"prefix": "unhide${1:Hoja1}",
+		"body": "Sheets(“${1:Hoja1}”).Visible = True",
+		"description": "muestra hoja"
+	},
+	"Aparecer hoja 2":{
+		"body": "Sheets(“${1:Hoja1}”).Visible = xlSheetVisible",
+		"prefix": "unhidesheet2",
+		"description": "muestra hoja"
+	},
+	"Invisibilizar hoja":{
+		"prefix": "veryhidecell",
+		"body":"Sheets(“${1:Hoja1}”).Visible = xlSheetVeryHidden",
+		"description": "invisibilizar hoja"
+	},
+	"Borrar hoja":{
+		"prefix": "deletesheet",
+		"body": "Sheets(“${1:Hoja1}”).Delete",
+
+	},
+	"Limpiar hoja":{
+		"prefix": "clearsheet",
+		"body": "Sheets(“${1:Hoja1}”).Cells.Clear",
+		"description": "Limpia valores de la hoja"
+	},
+	"Desproteger hoja sin contraseña":{
+		"prefix": "unprotectwpw",
+		"body": "Sheets(“${1:Hoja1}”).Unprotect",
+		"description": "desprotege hoja sin contraseña"
+	},
+	"Desproteger hoja con contraseña":{
+		"body": "Sheets(“${1:Hoja1}”).Unprotect “Password”",
+		"prefix": "unprotectpw",
+		"description": "desprotege hoja con contraseña"
+	},
+	"Proteger hoja sin contraseña":{
+		"prefix": "protectwpw",
+		"body": "Sheets(“${1:Hoja1}”).Protect",
+		"description": "protege hoja sin contraseña"
+	},
+	"Proteger hoja con contraseña":{
+		"body": "Sheets(“${1:Hoja1}”).Protect “Password”",
+		"prefix": "protectpw",
+		"description": "desprotege hoja con contraseña"
+	},
+	"Proteger hoja con acceso a VBA":{
+		"prefix": "protectvba",
+		"body": [
+			"Sheets(“${1:Hoja1}”).Protect",
+			"UserInterfaceOnly:=True"	
+		],
+		"description": "Protege hoja pero permite el acceso a VBA"
+	},
+	"Activar Celda 1":{
+		"body": "Range(${1:“B3”}).Activate",
+		"prefix": "activatecell1",
+		"description": "activa celda con base en el rango"
+	},
+	"Activar Celda 2":{
+		"body": "Cells(${1:3},${2:2}).Activate",
+		"prefix": "activatecell2",
+		"description": "activa celda con base en el valor matricial"
+	},
+	"Seleccionar rango 1":{
+		"body": "Range(“${1:a1:a3”}).Select",
+		"prefix": "selectrange1",
+		"description": "selecciona un rango de celdas"
+	},
+	"Seleccionar rango 2":{
+		"body": "Range(Range(“${1:a1}”), Range(“${2:a3}”)).Select",
+		"prefix": "selectrange2",
+		"description": "selecciona un rango de celdas"
+	},
+	"Seleccionar rango 3":{
+		"body": "Range(Cells(${1:1, 1}), Cells(${2:3, 1})).Select",
+		"prefix": "selectrange3",
+		"description": "selecciona un rango de celdas"
+	},
+	"Redimensionar rango":{
+		"description": "redimensiona rango",
+		"body": "Range(“${1:B3}”).Resize(${2:2, 2}).Select",
+		"prefix": "resizerange"
+	},
+	"Generar Offset":{
+		"description": "Generar Offset",
+		"body": "Range(“${1:B3}”).Offset(${2:2, 2}).Select",
+		"prefix": "offsetrange"
+	},
+	"Copiar rango de celdas y pegar":{
+		"description": "Copia y pega rango de celdas",
+		"body": "Range(“${1:A1:B3}”).Copy Range(“${2:D1}”)",
+		"prefix": "copyrange"
+	},
+	"Cortar rango de celdas y pegar":{
+		"description": "Copia y pega rango de celdas",
+		"body": "Range(“${1:A1:B3}”).Cut Range(“${2:D1}”)",
+		"prefix": "copyrange"
+	},
+	"Borrar rango de celdas 1":{
+		"description": "Borra rango de celdas",
+		"body": "Range(“${1:A1:B3}”).Delete",
+		"prefix": "deleterange1"
+	},
+	"Borrar rango de celdas 2":{
+		"description": "Borra rango de celdas",
+		"body": "Range(“${1:A1:B3}”).Delete shift:=xlShiftToLeft",
+		"prefix": "deleterange2"
+	},
+	"Limpiar rango de celdas 1":{
+		"body": "Range(“${1:A1:A3}”).Clear",
+		"prefix": "clearcellall",
+		"description": "limpia rango de celdas"
+	},
+	"Limpiar contenido de rango de celdas":{
+		"body": "Range(“${1:A1:A3}”).ClearContents",
+		"prefix": "clearcellcontent",
+		"description": "limpia rango de celdas"
+	},
+	"Limpiar formato de rango de celdas ":{
+		"body": "Range(“${1:A1:A3}”).ClearFormat",
+		"prefix": "clearcellformat",
+		"description": "limpia rango de celdas"
+	},
+	"Contar rango de celdas ":{
+		"body": "Range(“${1:A1:A3}”).Count",
+		"prefix": "countrange",
+		"description": "limpia rango de celdas"
+	},
+	"Añadir rango de celdas":{
+		"description": "Pone rango de celdas como variable",
+		"body": [
+			"Dim ${1:rng} as Range",
+			"Set ${1:rng} = Range(“${2:A1}”)",
+		],
+		"prefix": "rangeasvariable"
+	},
+	
+	"Unmerge rango de celdas":{
+		"prefix":"unmergerange",
+		"body":"Range(“${1:A1:A3}”).MergeRange(“${1:A1:A3}”).UnMerge",
+		"description": "Unmerge rango de celdas"
+	},
+	"Bucle para ranfo de celdas":{
+		"prefix": "cellrangeloop",
+		"body":[
+			"Dim cell As Range",
+			"For Each cell In Range(“${1:A1:C3}”)",
+			"\tMsgBox cell.Value",
+			"Next cell",
+		],
+		"description": "Crear bucle en rango de celdas"
+	},
+	"Activar Libro":{
+		"prefix": "workbookactivate",
+		"body":"Workbooks(“${1:Libro1}”).Activate",
+		"description": "Activa el libro seleccionado"
+	},
+	"Activar Primer libro abierto":{
+		"prefix": "workbookfirstactivate",
+		"body":"Workbooks(1).Activate",
+		"description": "Activa el primer libro abierto"
+	},
+	"Activar último libro abierto":{
+		"prefix": "workbooklastactivate",
+		"body":"Workbooks(Workbooks.Count).Activate",
+		"description": "Activa el último libro abierto"
+	},
+	"Obtener nombre del libro activo con mensaje":{
+		"prefix": "workbookacnamemsg",
+		"body":"MsgBox ActiveWorkbook.Name",
+		"description": "Mensaje para obtener el nombre del libro abierto"
+	},
+	"Obtener nombre del libro actual con mensaje":{
+		"prefix": "workbookthinamemsg",
+		"body":"MsgBox ThisWorkbook.Name",
+		"description": "Mensaje para obtener el nombre del archivo actual"
+	},
+	"Añadir ibro":{
+		"prefix": "wbadd",
+		"body":"Workbooks.Add",
+		"description": "Añade libro"
+	},
+	"Añadir ibro a variable":{
+		"prefix": "wbaddasvariable",
+		"body":[
+			"Dim wb As Workbook",
+			"Set wb = Workbooks.Add",
+		],
+		"description": "Añade ibro a variable"
+	},
+	"Abrir libro":{
+		"prefix": "wbopen",
+		"body":"Workbooks.Open(“${1:example.xlsm}”)",
+		"description": "Abrir libro"
+	},
+	"Abrir libro como variable":{
+		"prefix": "",
+		"body":[
+			"Dim wb As Workbook",
+			"Set wb = Workbooks.Open(“${1:example.xlsm}”)",
+		],
+		"description": "Crea función con libro como variable"
+	},
+	"Cerrar libro sin cambios":{
+		"prefix": "closewbwochange",
+		"body":[
+			"Workbooks(“${1:Book1}”).Close",
+			"SaveChanges:=False"
+		],
+		"description": "Cierra libro sin cambios"
+	},
+	"Cerrar libro guardando cabios ":{
+		"prefix": "closewbwchanges",
+		"body":[
+			"Workbooks(“${1:Book1}”).Close",
+			"SaveChanges:=True"
+		],
+		"description": "Cerrar libro guardando cabios "
+	},
+	"Guardar cambios en libro":{
+		"prefix": "savewb",
+		"body":"Workbooks(“${1:Book1}”).Save",
+		"description": "Guardar cambios en libro"
+	},
+	"Guardar como archivo nuevo":{
+		"prefix": "savewbas",
+		"body":"Workbooks(“${1:Book1}”).SaveAs ${2:strFileName}",
+		"description": "Guardar como archivo nuevo"
+	},
+	"Proteger libro":{
+		"prefix": "protectwb",
+		"body":"${1:Workbooks(1)}.Protect “${2:password}”",
+		"description": "Protege libro"
+	},
+	"Desprotege libro":{
+		"prefix": "unprotectwb",
+		"body":"${1:Workbooks(1)}.Unprotect “${2:password}”",
+		"description": "Desprotege libro"
+	},
+	"Libro como variable:":{
+		"prefix": "wbasvariable1",
+		"body":[
+			"Dim wb as Workbook",
+			"Set wb = Workbooks(“${1:Book1}”)",
+		],
+		"description": "secuencia para generar libro como variable"
+	},
+	"Bucle en todos los libros":{
+		"prefix": "wbloopforall",
+		"body":[
+			"Dim wb As Workbook",
+			"For Each wb In Workbooks",
+			"\tMsgBox wb.Name $0",
+			"Next wb",
+		],
+		"description": "Base para crear bucle de todos los libros"
+	},
+	"Checar si existe libro":{
+		"prefix": "wbcheckexist",
+		"body":[
+			"If Dir(“${1:Book1.xlsx}”) = “” Then",
+			"\tMsgBox “File does not exist.”,",
+			"EndIf",
+		],
+		"description": "Verificar existencia de libro"
+	},
+	"Copiar archivo cerrado":{
+		"prefix": "wbcopyclosed",
+		"body":"FileCopy “${1:C:\\file1.xlsx}”,”${2:C:\\file2.xlsx}”",
+		"description": "Copia y pega archivo cerrado"
+	},
+	"Activar columnas 1":{
+		"prefix": "colact1",
+		"body":"Columns(${1:1}).Activate",
+		"description": "Activa columna seleccionada"
+	},
+	"Activar columnas 2":{
+		"prefix": "colact2",
+		"body":"Columns(“${2:a:a}”).Activate",
+		"description": "Activa columna seleccionada"
+	},
+	"Activar columnas 3":{
+		"prefix": "colact3",
+		"body":"Range(“${1:a1}”).EntireColumn.Activate",
+		"description": "Activa columna seleccionada"
+	},
+	"Acomodar ancho de columna":{
+		"prefix": "colwidth",
+		"body":"Range(“${1:A1}”).EntireColumn.ColumnWidth = ${2:30}",
+		"description": "Ajusta ancho de columna"
+	},
+	"Borra columna":{
+		"prefix": "coldel",
+		"body":"Range(“${1:A1}”).EntireColumn.Delete",
+		"description": "Borra columna de celda seleccionada"
+	},
+	"Cuenta elementos en columna":{
+		"prefix": "colcount",
+		"body":"Range(“${1:A1}”).Columns.Count",
+		"description": "Cuenta en columna"
+	},
+	"Insertar columna":{
+		"prefix": "colinsert",
+		"body":"Range(“${1:A1}”).EntireColumn.Insert",
+		"description": "Inserta columna"
+	},
+	"Última columna":{
+		"prefix": "collast",
+		"body":[
+			"dim lCol as long",
+			"lCol = Cells(1, Columns.Count).End",
+			"(xlToLeft).Column"
+		],
+		"description": "va a la última coluna"
+	},
+	"Copia columna":{
+		"prefix": "colcopy",
+		"body":"Range(“${1:A:A}”).Copy Range(“${2:E:E}”)",
+		"description": "Copia columna y la pega en columna destino"
+	},
+	"Inserta columna copiada":{
+		"prefix": "colcopyinsert",
+		"body":[
+			"Range(“${1:A:A}”).Copy",
+			"Range(“${2:E:E}”).Insert",
+		],
+		"description": "Copia columna y la inserta en la columna seleccionada"
+	},
+	"Activa fila 1":{
+		"prefix": "rowact1",
+		"body":"Rows(${1:1}).Activate",
+		"description": "Activa fla seleccionada"
+	},
+	"Activa fila 2":{
+		"prefix": "rowact2",
+		"body":"Rows(“${1:1:1}”).Activate",
+		"description": "Activa fila seleccionada"
+	},
+	"Activa fila 3":{
+		"prefix": "rowact3",
+		"body":"Range(“${1:a1}”).EntireRow.Activate",
+		"description": "Activa fila seleccionada"
+	},
+	"Ancho de fila":{
+		"prefix": "rowheight1",
+		"body":"Range(“${1:A1}”).EntireRow.RowHeight = ${2:30}",
+		"description": "Modifica Ancho de fila"
+	},
+	"Borra fila":{
+		"prefix": "rowdelete",
+		"body":"Range(“${1:A1}”).EntireRow.Delete",
+		"description": "Borra fila seleccionada"
+	},
+	"Contar elementos de fila":{
+		"prefix": "rowcount",
+		"body":"Range(“${1:A1}”).Rows.Count",
+		"description": "Cuenta elementos en la fila"
+	},
+	"Inserta fila":{
+		"prefix": "rowinsert",
+		"body":"Range(“${1:A1}”).EntireRow.Inser",
+		"description": "Inserta fila en rango seleccionado"
+	},
+	"Última fila":{
+		"prefix": "lastrow",
+		"body":[
+			"dim lRow as long",
+			"lRow = Cells(Rows.Count, 1).End(xlUp).Row",
+		],
+		"description": ""
+	},
+	"Copiar fila":{
+		"prefix": "rowcp",
+		"body":"Range(“${1:1:1}”).Copy Range(“${2:5:5}”)",
+		"description": "Copia y pega fila en rango seleccionado"
+	},
+	"Copia e inserta fila":{
+		"prefix": "rowcpinsert",
+		"body":[
+			"Range(“${1:1:1}”).Copy",
+			"Range(“${2:5:5}”).Insert"
+		],
+		"description": "Copia fila e inserta en rango seleccionado"
+	},
+	"En error para código y muestra error":{
+		"prefix": "errgoto0",
+		"body":"On Error Goto 0",
+		"description": ""
+	},
+	"En error sigue código":{
+		"prefix": "errresume",
+		"body":"On Error Resume Next",
+		"description": ""
+	},
+	"En error va a línea de error":{
+		"prefix": "errgotoline",
+		"body":"On Error Goto [Label]",
+		"description": ""
+	},
+	"En error limpia y muestra error":{
+		"prefix": "errcl",
+		"body":"On Error GoTo –1",
+		"description": ""
+	},
+	"Muestra número de error":{
+		"prefix": "errnumber",
+		"body":"MsgBox Err.Number",
+		"description": ""
+	},
+	"Muestra descripción de error":{
+		"prefix": "errdesc",
+		"body":"MsgBox Err.Description",
+		"description": ""
+	},
+	"Generar error":{
+		"prefix": "erraise",
+		"body":"Err.Raise",
+		"description": ""
+	},
+	"Copia archivo":{
+		"prefix": "cpfile",
+		"body":"FileCopy “${1:C:\\test\\test_old.xlsx}”, “${2:C:\\test\\test_new.xlsx}”",
+		"description": "copiar archivo"
+	},
+	"borra archivo":{
+		"prefix": "delfile",
+		"body":"Kill “C:\\test\\example.xlsx”",
+		"description": "Borra archivo"
+	},
+	"Crea carpeta":{
+		"prefix": "mkdir",
+		"body":"MkDir ${1:“C:\\test\\”}",
+		"description": "Crea carpeta"
+	},
+	"Borra todos los archivos de carpeta":{
+		"prefix": "delfilesfolder",
+		"body":"Kill “C:\\test\\” & “*.*”",
+		"description": "Borra archivos de carpeta"
+	},
+	"Borra carpeta y archivos":{
+		"prefix": "delfolderall",
+		"body":"Kill “C:\\test\\” & “*.*”RmDir “C:\\test\\”",
+		"description": "Borra carpeta con archivos"
+	},
+	"Ver Directorio actual":{
+		"prefix": "seecurrdir",
+		"body":"strPath = CurDir()",
+		"description": "Ver carpeta actual"
+	},
+	"Ver ruta del archivo completa":{
+		"prefix": "seepath",
+		"body":"strPath = ThisWorkbook.Path",
+		"description": "Ver ruta completa del archivo"
+	},
+	"Bucle por todos los archivos en el directorio":{
+		"prefix": "dirforallfilesloop",
+		"body":[
+			"strFile = Dir(“C:\\test” & “\\*”)",
+			"Do While Len(strFile) > 0",
+			"\tDebug.Print strFile",
+			"\tstrFile = Dir",
+			"Loop",
+		],
+		"description": "Bucle por todos los archivos"
+	},
+	"Activar actualización de pantalla":{
+		"prefix": "updatescreentrue",
+		"body":"Application.ScreenUpdating = FalseApplication.ScreenUpdating = True",
+		"description": "Activar actualización de pantalla"
+	},
+	"Desactivar actualización de pantalla":{
+		"prefix": "updatescreenfalse",
+		"body":"Application.DisplayAlerts = FalseApplication.DisplayAlerts = True",
+		"description": "Desactivar actualización de pantalla"
+	},
+	"Activar aviso de alertas":{
+		"prefix": "displayalertson",
+		"body":"Application.EnableEvents = False",
+		"description": "Activar aviso de alertas"
+	},
+	"Desactivar aviso de alertas":{
+		"prefix": "displayalertsoff",
+		"body": "Application.EnableEvents = True",
+		"description": "Desactivar aviso de alertas"
+	},
+	"Activar tecla de cancelación 1":{
+		"prefix": "enablecancelkey1",
+		"body":[
+			"Application.EnableCancelKey =",
+			"xlDisabled",
+		],
+		"description": "Activa tecla de cancelación"
+	},
+	"Activar tecla de cancelación 2":{
+		"prefix": "enablecancelkey1",
+		"body":[
+			"Application.Enable",
+			"CancelKey =xlInterrupt",
+		],
+		"description": "Activa tecla de cancelación"
+	},
+	"Comparar texto - Ignorar el caso":{
+		"prefix": "textcompareigcase",
+		"body":"Option Compare Text",
+		"description": "Comparar texto - Ignorar el caso"
+	},
+	"Requerir Declaración de variables":{
+		"prefix": "optionexplicit",
+		"body":"Option Explicit",
+		"description": ""
+	},
+	"Cálculo manual":{
+		"prefix": "calcxlmanual",
+		"body":"Application.Calculation = xlManual",
+		"description": "Cálculo manual de aplicaciones"
+	},
+	"Cálculo automático de operaciones":{
+		"prefix": "calcxlauto",
+		"body":"Application.Calculation = xlAutomatic",
+		"description": "Cálculo automático"
+	},
+	"Chequeo de errores 1":{
+		"prefix": "bgerrorcheckfalse",
+		"body":[
+			"Application.ErrorCheckingOptions.",
+			"BackgroundChecking = False",
+		],
+		"description": "Chequeo de errores desactivado"
+	},"Chequeo de errores 2":{
+		"prefix": "bgerrorchecktrue",
+		"body":[
+			"Application.ErrorCheckingOptions.",
+			"BackgroundChecking = True",
+		],
+		"description": "Chequeo de errores activado"
+	},
+	"Oculta barra de fórmulas":{
+		"prefix": "formulabarhidden",
+		"body":"Application.DisplayFormulaBar = False",
+		"description": "Oculta barra de fórmulas"
+	},
+	"Muestra barra de fórmulas":{
+		"prefix": "formulabarunhidden",
+		"body":"Application.DisplayFormulaBar = True",
+		"description": "Muestra barra de fórmulas"
+	},
+	"descongela panes":{
+		"prefix": "unfreezepane",
+		"body":"ActiveWindow.FreezePanes = False",
+		"description": ""
+	},
+	"descongela pane":{
+		"prefix": "freezepane",
+		"body": "ActiveWindow.FreezePanes = True",
+	},
+	"Desactiva pantalla completa":{
+		"prefix": "unshowfullscreen",
+		"body":"Application.DisplayFullScreen = False",
+		"description": "Desactiva pantalla completa"
+	},
+	"Activa pantalla completa":{
+		"prefix": "showfullscreen",
+		"body": "Application.DisplayFullScreen = True",
+		"description": "Activa pantalla completa"
+	},
+	"Vista previa de corte de página 1":{
+		"prefix": "breakpreview",
+		"body":[
+			"ActiveWindow.View =xlPageBreakPreview",
+			"ActiveWindow.View = xlNormalView",
+			],
+		"description": "Vista previa de corte de página 1"
+	},
+	"Mostrar scrollbars":{
+		"prefix": "displayscrollbars",
+		"body":[
+			"With ActiveWindow",
+			".DisplayHorizontalScrollBar = True",
+			".DisplayVerticalScrollBar = True",
+			"End With",
+		],
+		"description": "Mostrar scrollbars"
+	},
+	"Ocultar scrollbars":{
+		"prefix": "hidescrollbars",
+		"body":[
+			"With ActiveWindow",
+			".DisplayHorizontalScrollBar = False",
+			".DisplayVerticalScrollBar = False",
+			"End With",
+		],
+		"description": "Ocultar scrollbars"
+	},
+	"Mostrar barra de estado":{
+		"prefix": "showprogressbar",
+		"body":"Application.DisplayStatusBar = True",
+		"description": "Mostrar barra de estado"
+	},
+	"Ocultar barra de estado":{
+		"prefix": "hideprogressbar",
+		"body":"Application.DisplayStatusBar = False",
+		"description": "Ocultar barra de estado"
+	},
+	"Mostrar contenido de barra de estado":{
+		"prefix": "showstatusbarcontent",
+		"body":"Application.StatusBar = “I’m working Now!!!”",
+		"description": "Mostrar contenido de barra de estado"
+	},
+	"Ocultar contenido de barra de estado":{
+		"prefix": "hidestatusbarcontent",
+		"body":"Application.StatusBar = False",
+		"description": "Ocultar contenido de barra de estado"
+	},
+	"Mostrar pestañas del libro":{
+		"prefix": "showwbtabs",
+		"body":"ActiveWindow.DisplayWorkbookTabs=True",
+		"description": "Mostrar pestañas del libro"
+	},
+	"Ocultar pestañas del libro":{
+		"prefix": "hidewbtabs",
+		"body":"ActiveWindow.DisplayWorkbookTabs=False",
+		"description": "Ocultar pestañas del libro"
+	},
+	"Cambiar usuario":{
+		"prefix": "wbusername",
+		"body":"Application.UserName = “AutomateExcel.com”",
+		"description": "Cambiar el usuario del archivo"
+	},
+	"Cambiar caption":{
+		"prefix": "wbcaption",
+		"body":"Application.Caption = “${1:AutomateExcel Model}”",
+		"description": "Cambiar caption"
+	},
+	"Mostrar zoom":{
+		"prefix": "zoomwb",
+		"body":"ActiveWindow.Zoom = ${1:80}",
+		"description": "Cambiar zoom"
+	},
+	"Crear arreglo":{
+		"prefix": "arraycreate",
+		"body":[
+			"Dim arr(${1:1} To ${2:3}) As Variant",
+			"arr(${1:1}) = “one”",
+			"arr(${3:2}) = “two”",
+			"arr(${4:3}) = “three”",
+		],
+		"description": "Crea arreglo en solitario"
+	},
+	"Crear arreglo con datos de excel":{
+		"prefix": "arraywbcreate",
+		"body":[
+			"Dim arr(${1:1 To 3}) As Variant",
+			"Dim cell As Range, i As Integer",
+			"i = LBound(arr)",
+			"For Each cell In Range(“${2:A1:A3}”)",
+			"\ti = i + 1",
+			"\tarr(i) = cell.value",
+			"Next cell",
+		],
+		"description": "Crea archivo para leer los datos en la celda"
+	},
+	"Leer todos los términos ":{
+		"prefix": "arrayreadall",
+		"body":[
+			"Dim i as Long",
+			"Fori = LBound(arr) To UBound(arr)",
+			"\tMsgBox arr(i)",
+			"Next i",
+		],
+		"description": "Lee todos los archivos de un arreglo"
+	},
+	"Eliminar arreglo":{
+		"prefix": "arraydelete",
+		"body":"Erase arr",
+		"description": "Elimina arreglo"
+	},
+	"Convertir arreglo a string":{
+		"prefix": "arraytostr",
+		"body":"Dim sName As StringsName = Join(arr, “:”)",
+		"description": "Convierte arreglo a string"
+	},
+	"Incrementa tamaño de arreglo":{
+		"prefix": "arrayresize",
+		"body":"ReDim Preserve arr(0 To 100)",
+		"description": "Incrementa tamaño de arreglo"
+	},
+	"Definir valor en posición de arreglo":{
+		"prefix": "arrayposdefvalue",
+		"body":"arr(1) = 22",
+		"description": "Definir valor en posición de arreglo"
+	},
+	"Crear diccionario":{
+		"prefix": "dictcreate",
+		"body":[
+			"Dim dict As New Scripting.Dictionary",
+			"dict.Add “”",
+			"dict.Add “”",
+		],
+		"description": "Cear diccionario"
+	},
+	"Crear diccionario desde valores de Excel":{
+		"prefix": "dictcreatefromexcel",
+		"body":[
+			"Dim dict As New Scripting.Dictionary",
+			"Dim cell As Range",
+			"Dim key As Integer",
+			"For Each cell In Range(“A1:A10”)",
+			"\tkey = key + 1",
+			"\tdict.Add key, cell.value",
+			"Next cell",
+		],
+		"description": "Crear diccionario desde valores de Excel"
+	},
+	"Añadir objeto":{
+		"prefix": "dictaddkey",
+		"body":"dict.Add “Key”, “Value”",
+		"description": "Añadir objeto a diccionario"
+	},
+	"Cambiar valor del objeto":{
+		"prefix": "dictmodfkey",
+		"body":"dict(“Key”) = “Value”",
+		"description": "Cambia valor de objeto en diccionario"
+	},
+	"Obtener valor de objeto":{
+		"prefix": "",
+		"body":"MsgBox dict(“Key”)",
+		"description": ""
+	},
+	"Ver si valor existe en diccionario":{
+		"prefix": "dictcheckifexists",
+		"body":[
+			"If dict.Exists(“Key”) Then",
+			"\tMsgBox “Exists”",
+			"End If",
+		],
+		"description": "Ver si valor existe en diccionario"
+	},
+	"Eliminar objeto de diccionario":{
+		"prefix": "dictdelobj",
+		"body":"dict.Remove (“Key”)",
+		"description": "Eliminar objeto de diccionario"
+	},
+	"Eliminar todos los elementos de un diccionario":{
+		"prefix": "dictdelall",
+		"body":"dict.RemoveAll",
+		"description": "Eliminar todos los elementos de un diccionario"
+	},
+	"Bucle entre elementos de diccionario":{
+		"prefix": "dictloop",
+		"body":[
+			"Dim key As Variant",
+			"For Each key In dict.Keys",
+			"\tMsgBox key, dict(key)",
+			"Next key",
+		],
+		"description": "Bucle entre elementos de diccionario"
+	},
+	"Contar elementos de diccionario":{
+		"prefix": "dictcount",
+		"body":"dict.Count",
+		"description": "Contar elementos del diccionario"
+	},
+	"Hacer comparación binaria":{
+		"prefix": "dictcomparebinary",
+		"body":"dict.CompareMode = vbBinaryCompare",
+		"description": "Hacer comparación binaria"
+	},
+	"Hacer comparación de texto":{
+		"prefix": "dicttextcompare",
+		"body":"dict.CompareMode = vbTextCompare",
+		"description": "Hacer comparación de texto en diccionario"
+	},
+	"Crear colección":{
+		"prefix": "colleccreate",
+		"body":[
+			"Dim coll As New Collection",
+			"coll.Add “one”",
+			"coll.Add “two”",
+		],
+		"description": "Crear colección"
+	},
+	"Crear colección desde Excel":{
+		"prefix": "collcreatefromexcel",
+		"body":[
+			"Dim coll As New Collection",
+			"Dim cell As Range",
+			"For Each cell In Range(“A1:A2”)",
+			"\tcoll.Add cell.value",
+			"Next cell",
+		],
+		"description": "Crear colección con datos de excel"
+	},
+	"Añadir elemento a colección":{
+		"prefix": "colladditem",
+		"body":"coll.Add “Value”",
+		"description": ""
+	},
+	"Añadir elemento previo":{
+		"prefix": "colladditembefore",
+		"body":"coll.Add “Value”, Before:=1",
+		"description": "Añadir elemento previo"
+	},
+	"Añadir elemento posterior":{
+		"prefix": "colladditemafter",
+		"body":"coll.Add “Value”, After:=1",
+		"description": "Añadir elemento posterior"
+	},
+	"Leer elemento en colección":{
+		"prefix": "collreadel",
+		"body":"MsgBox coll (1)",
+		"description": "Leer elemento en colección"
+	},
+	"contar elementos de colección":{
+		"prefix": "collcount",
+		"body":"coll.Count",
+		"description": ""
+	},
+	"Leer todos los elementos de la colección":{
+		"prefix": "collreadall",
+		"body":[
+			"Dim item As Variant",
+			"For Each item In coll",
+			"\tMsgBox item",
+			"Next item",
+		],
+		"description": ""
+	},
+	"Remover elemento de colección":{
+		"prefix": "coldelitem",
+		"body":"coll.Remove (1)",
+		"description": "Remover elemento de colección"
+	},
+	"Borrar todos los elementos de la colección":{
+		"prefix": "coldelall",
+		"body":"Set coll = New Collection",
+		"description": "Eliminar todos los elementos de la colección"
+	}
+}
